@@ -25,6 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:clickable="true"
             android:background="@drawable/textview_click"
             android:text="@string/puzzle_main_type_selected"
             android:textColor="@color/main_text"
