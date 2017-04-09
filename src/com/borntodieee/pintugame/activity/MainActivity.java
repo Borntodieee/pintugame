@@ -88,6 +88,7 @@ public class MainActivity extends Activity implements OnClickListener{
 					Intent intent = new Intent(MainActivity.this, PuzzleMain.class);
 					intent.putExtra("picSelectedID", mResPicId[position]);
 					intent.putExtra("mType", mType);
+					startActivity(intent);
 				}
 			}
 			
