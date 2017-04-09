@@ -1,7 +1,6 @@
 package com.borntodieee.pintugame.activity;
 
 import java.io.File;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -187,14 +186,14 @@ options.inSampleSize = 10;   //width，hight设为原来的十分一
 Bitmap btp =BitmapFactory.decodeStream(is,null,options); 
 		 */
 
-		BitmapFactory.Options options=new BitmapFactory.Options(); 
-		options.inJustDecodeBounds = false; 
-		options.inSampleSize = 10;   //width，hight设为原来的十分一 
+//		BitmapFactory.Options options=new BitmapFactory.Options(); 
+//		options.inJustDecodeBounds = false; 
+//		options.inSampleSize = 10;   //width，hight设为原来的十分一 
 		for(int i=0; i<bitmaps.length; i++){
 //书中原码
-//			bitmaps[i] = BitmapFactory.decodeResource(getResources(),mResPicId[i]);
-			InputStream is = this.getResources().openRawResource(mResPicId[i]); 
-			bitmaps[i] =BitmapFactory.decodeStream(is,null,options);
+			bitmaps[i] = BitmapFactory.decodeResource(getResources(),mResPicId[i]);
+//			InputStream is = this.getResources().openRawResource(mResPicId[i]); 
+//			bitmaps[i] =BitmapFactory.decodeStream(is,null,options);
 			mPicList.add(bitmaps[i]);
 		}
 		//显示type
