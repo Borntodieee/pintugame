@@ -3,19 +3,20 @@
     android:id="@+id/rl_puzzle_main_main_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/main_bg">
+    android:background="@color/main_bg" >
 
     <LinearLayout
         android:id="@+id/ll_puzzle_main_spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/padding"
-        android:gravity="center_horizontal">
+        android:gravity="center_horizontal" >
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_margin="@dimen/padding"
             android:text="@string/puzzle_main_steps"
             android:textColor="@color/title_text"
             android:textSize="@dimen/text_title" />
@@ -25,6 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_margin="@dimen/padding"
             android:gravity="center"
             android:paddingRight="50dip"
             android:text="1"
@@ -35,6 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_margin="@dimen/padding"
             android:text="@string/puzzle_main_time"
             android:textColor="@color/title_text"
             android:textSize="@dimen/text_title" />
@@ -44,8 +47,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_margin="@dimen/padding"
             android:gravity="center"
-            android:text="1"
+            android:text="0"
             android:textColor="@color/title_text"
             android:textSize="@dimen/text_title" />
     </LinearLayout>
@@ -56,7 +60,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_margin="@dimen/padding">
+        android:layout_margin="@dimen/padding" >
 
         <Button
             android:id="@+id/btn_puzzle_main_img"

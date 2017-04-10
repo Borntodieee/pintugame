@@ -13,6 +13,7 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.animation.Animation;
@@ -103,7 +104,6 @@ public class PuzzleMain extends Activity implements OnClickListener {
 		//判断选择默认图片还是自定义图片
 		if(mResId != 0){
 			picSelectedTemp = BitmapFactory.decodeResource(getResources(), mResId);
-			
 		}else{
 			picSelectedTemp = BitmapFactory.decodeFile(mPicPath);
 		}
@@ -229,11 +229,11 @@ public class PuzzleMain extends Activity implements OnClickListener {
                 mPicSelected.getWidth(),
                 mPicSelected.getHeight());
         //水平居中
-        gridParams.addRule(RelativeLayout.CENTER_HORIZONTAL);
+        gridParams.addRule(RelativeLayout.CENTER_IN_PARENT);
         //其它格式属性
-        gridParams.addRule(
-                RelativeLayout.BELOW,
-                R.id.ll_puzzle_main_spinner);
+//        gridParams.addRule(
+//                RelativeLayout.BELOW,
+//                R.id.ll_puzzle_main_spinner);
         mGvPuzzleMainDetail.setLayoutParams(gridParams);
         mGvPuzzleMainDetail.setHorizontalSpacing(0);
         mGvPuzzleMainDetail.setVerticalSpacing(0);
@@ -287,6 +287,8 @@ public class PuzzleMain extends Activity implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
+		Animation animShow = AnimationUtils.loadAnimation(this, R.anim.image_show_anim);
+		Animation animHide = AnimationUtils.loadAnimation(this, R.anim.image_hide_anim);
 		switch(v.getId()){
         // 返回按钮点击事件
         case R.id.btn_puzzle_main_back:
@@ -294,8 +296,6 @@ public class PuzzleMain extends Activity implements OnClickListener {
             break;
         // 显示原图按钮点击事件
         case R.id.btn_puzzle_main_img:
-        	Animation animShow = AnimationUtils.loadAnimation(this, R.anim.image_show_anim);
-        	Animation animHide = AnimationUtils.loadAnimation(this, R.anim.image_hide_anim);
         	if(mIsShowImg){
                 mImageView.startAnimation(animHide);
                 mImageView.setVisibility(View.GONE);
@@ -308,6 +308,11 @@ public class PuzzleMain extends Activity implements OnClickListener {
         	break;
             // 重置按钮点击事件
             case R.id.btn_puzzle_main_restart:
+            	if(mIsShowImg){
+                    mImageView.startAnimation(animHide);
+                    mImageView.setVisibility(View.GONE);
+                    mIsShowImg = false;
+            	}
                 cleanConfig();
                 generateGame();
                 recreateData();

@@ -19,6 +19,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -123,6 +124,7 @@ public class MainActivity extends Activity implements OnClickListener{
 				cursor.close();
 				startActivity(intent);
 			}else if(requestCode == RESULT_CAMERA){
+				Log.i("onActivityResult", "222");
 				//相机
 				Intent intent = new Intent(MainActivity.this, PuzzleMain.class);
 				intent.putExtra("mPicPath", TEMP_IMAGE_PATH);
